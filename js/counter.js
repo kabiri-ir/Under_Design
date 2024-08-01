@@ -3,7 +3,7 @@ $('.cd100').countdown100({
     /*Endtime must be > current time*/
     endtimeYear: 0,
     endtimeMonth: 0,
-    endtimeDate: 30,
+    endtimeDate: 29,
     endtimeHours: 18,
     endtimeMinutes: 0,
     endtimeSeconds: 0,
