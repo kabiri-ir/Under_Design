@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fa">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +12,6 @@
     <link rel="icon" type="image/x-icon" href="pics/android-chrome.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <div class="container">
         <p style="text-align: center;">
@@ -50,7 +48,6 @@
         <button id="openLoginModalBtn" class="styled-button large-button">سامانه اعلام نمرات</button>
     </div>
 
-
     <div id="news-container">
         <h2>خبر و اطلاعیه</h2>
         <div id="news-boxes"></div>
@@ -78,7 +75,7 @@
     <!-- مدال پیغام موفقیت -->
     <div id="successModal" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeSuccessModalBtn">&times;</span>
+            <span class="close" id="closeSuccessModalSpan">&times;</span>
             <h2>پیام سامانه</h2>
             <p id="success-message">ایمیل شما با موفقیت ثبت شد</p>
             <button id="closeSuccessModalBtn">بستن</button>
@@ -103,17 +100,16 @@
         </div>
     </div>
 
+    <!-- مدال پیام -->
     <div id="messageModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" id="closeMessageModalSpan">&times;</span>
             <h2>پیام سامانه</h2>
             <p id="user-message"></p>
             <button id="closeMessageModalBtn">خروج</button>
         </div>
     </div>
-
     
     <script defer src="js/scripts.js"></script>
 </body>
-
 </html>

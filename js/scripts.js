@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // مراجع به مدال‌ها و دکمه‌ها
     const loginModal = document.getElementById("loginModal");
     const successModal = document.getElementById("successModal");
     const messageModal = document.getElementById("messageModal");
     const downloadModal = document.getElementById("downloadModal");
-
     const openLoginModalBtn = document.getElementById("openLoginModalBtn");
     const openDownloadModalBtn = document.getElementById("openDownloadModalBtn");
     const loginBtn = document.getElementById("loginBtn");
@@ -11,51 +11,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeSuccessModalBtn = document.getElementById("closeSuccessModalBtn");
     const closeMessageModalBtn = document.getElementById("closeMessageModalBtn");
     const closeDownloadModalBtn = document.getElementById("closeDownloadModalBtn");
-
     const errorMessage = document.getElementById("error-message");
     const userMessage = document.getElementById("user-message");
     const successMessage = document.getElementById("success-message");
 
+    // داده‌های اعتبارسنجی کاربر
     const userCredentials = {
         "youneskabirishahed": {
             password: "0370882105",
-            message: "جناب آقای یونس کبیری با سلام \n " +
-                     "نمره آزمون شما در تاریخ 1403/07/08 برابر است با : 18.5"
+            message: "جناب آقای یونس کبیری با سلام \n نمره آزمون شما در تاریخ 1403/07/08 برابر است با : 18.5"
         },
         "user2": {
             password: "pass2",
             message: "پیام لورم مخصوص کاربر user2: لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است..."
-        },
-        // می‌توانید کاربران بیشتری به این شیء اضافه کنید
+        }
     };
 
     // مدیریت نمایش مدال ورود
-    openLoginModalBtn.onclick = function() {
+    openLoginModalBtn.onclick = () => {
         loginModal.style.display = "block";
-    }
+    };
 
     // مدیریت نمایش مدال دانلود
-    openDownloadModalBtn.onclick = function() {
+    openDownloadModalBtn.onclick = () => {
         downloadModal.style.display = "block";
-    }
+    };
 
-    // مدیریت دکمه‌های مدال دانلود
+    // دکمه‌های مدال دانلود
     const fileButtons = [
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
-        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: "سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" }
+        // می‌توانید فایل‌های بیشتری اضافه کنید
     ];
 
     const fileButtonsContainer = document.getElementById("fileButtonsContainer");
-
     fileButtons.forEach(file => {
         const button = document.createElement("button");
         button.className = "file-download-button";
@@ -66,54 +54,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // مدیریت بستن مدال‌ها
     Array.from(closeButtons).forEach(button => {
-        button.onclick = function() {
+        button.onclick = () => {
             loginModal.style.display = "none";
             successModal.style.display = "none";
             messageModal.style.display = "none";
             downloadModal.style.display = "none";
-        }
+        };
     });
 
-    closeSuccessModalBtn.onclick = function() {
+    closeSuccessModalBtn.onclick = () => {
         successModal.style.display = "none";
-    }
+    };
 
-    closeMessageModalBtn.onclick = function() {
+    closeMessageModalBtn.onclick = () => {
         messageModal.style.display = "none";
-    }
+    };
 
-    closeDownloadModalBtn.onclick = function() {
+    closeDownloadModalBtn.onclick = () => {
         downloadModal.style.display = "none";
-    }
+    };
 
-    window.onclick = function(event) {
-        if (event.target == loginModal) {
+    window.onclick = event => {
+        if (event.target === loginModal) {
             loginModal.style.display = "none";
         }
-        if (event.target == successModal) {
+        if (event.target === successModal) {
             successModal.style.display = "none";
         }
-        if (event.target == messageModal) {
+        if (event.target === messageModal) {
             messageModal.style.display = "none";
         }
-        if (event.target == downloadModal) {
+        if (event.target === downloadModal) {
             downloadModal.style.display = "none";
         }
-    }
+    };
 
     // مدیریت فرم ایمیل
     const emailForm = document.getElementById("emailForm");
-    emailForm.onsubmit = function(event) {
+    emailForm.onsubmit = event => {
         event.preventDefault(); // جلوگیری از ارسال فرم به صورت پیش‌فرض
 
         const email = document.getElementById("email").value;
         if (validateEmail(email)) {
-            // نمایش مدال موفقیت
             successModal.style.display = "block";
         } else {
             alert("لطفاً یک ایمیل معتبر وارد کنید.");
         }
-    }
+    };
 
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -124,12 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const countdownKey = 'countdownEndTime';
     let targetDate;
 
-    // بررسی وجود زمان باقی‌مانده در localStorage
     const storedEndTime = localStorage.getItem(countdownKey);
     if (storedEndTime) {
         targetDate = new Date(parseInt(storedEndTime, 10));
     } else {
-        // اگر موجود نیست، تنظیم تاریخ هدف برای 150 روز بعد از حال حاضر
         targetDate = new Date();
         targetDate.setDate(targetDate.getDate() + 150);
         localStorage.setItem(countdownKey, targetDate.getTime());
@@ -161,58 +146,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateCountdown(); // به‌روزرسانی تایمر در بارگذاری اولیه
     const interval = setInterval(updateCountdown, 1000); // به‌روزرسانی هر ثانیه
+
+    // مدیریت فرم ورود
+    loginBtn.onclick = event => {
+        event.preventDefault(); // جلوگیری از ارسال فرم به صورت پیش‌فرض
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (userCredentials[username] && userCredentials[username].password === password) {
+            userMessage.innerText = userCredentials[username].message;
+            messageModal.style.display = "block";
+            loginModal.style.display = "none";
+        } else {
+            errorMessage.innerText = "نام کاربری یا کلمه عبور نادرست است.";
+            errorMessage.style.display = "block";
+        }
+    };
+
+    // داده‌های اخبار
+    const newsData = [
+        {
+            header: "اطلاعیه آزمون",
+            title: "زمان برگزاری آزمون مهرماه دبیرستان شاهد",
+            subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
+            content: "به اطلاع دانش اموزان عزیز کلاس 101 دهم ریاضی دبیرستان شاهد حضرت علی اکبر می رساند که زمان برگزاری آزمون فصل اول ، روز سه شنبه 9 مهرماه ، زنگ دوم در سالن امتحانات خواهد بود",
+            image: "https://via.placeholder.com/150"
+        },
+        {
+            header: "انتشار جزوه",
+            title: "انتشار جزوه فصل اول ریاضی دهم",
+            subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
+            content: "با سلام خدمت دانش اموزان عزیز، فایل جزوه دست نویس فصل اول در سایت آکادمی، بارگزاری شد. امیدوارم بهترین استفاده را ببرید",
+            image: "https://via.placeholder.com/150"
+        },
+        {
+            header: "اطلاعیه انتشار نمره و آزمون",
+            title: "انتشار نمره آزمون 1403/07/08 دبیرستان ایزدی به همراه سوال آزمون و پاسخنامه",
+            subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
+            content: "به اطلاع دانش اموزان عزیز کلاس 101 دهم ریاضی دبیرستان شاهد حضرت علی اکبر می رساند که زمان برگزاری آزمون فصل اول ، روز سه شنبه 9 مهرماه ، زنگ دوم در سالن امتحانات خواهد بود",
+            image: "https://via.placeholder.com/150"
+        },
+        {
+            header: "دانستنی های ریاضی",
+            title: "زمان برگزاری آزمون مهرماه دبیرستان شاهد",
+            subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
+            content: "به اطلاع دانش اموزان عزیز کلاس 101 دهم ریاضی دبیرستان شاهد حضرت علی اکبر می رساند که زمان برگزاری آزمون فصل اول ، روز سه شنبه 9 مهرماه ، زنگ دوم در سالن امتحانات خواهد بود",
+            image: "https://via.placeholder.com/150"
+        }
+    ];
+
+    const newsContainer = document.getElementById('news-boxes');
+    newsData.forEach(news => {
+        const box = document.createElement('div');
+        box.className = 'news-box';
+
+        box.innerHTML = `
+            <img src="${news.image}" alt="${news.title}">
+            <div class="news-content">
+                <h3>${news.header}</h3>
+                <h4>${news.title}</h4>
+                <p>${news.subtitle}</p>
+                <p>${news.content}</p>
+            </div>
+        `;
+
+        newsContainer.appendChild(box);
+    });
 });
 
-// script.js
-
-// Data for the news items
-const newsData = [
-    {
-        header: "اطلاعیه آزمون",
-        title: "زمان برگزاری آزمون مهرماه دبیرستان شاهد",
-        subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
-        content: "به اطلاع دانش اموزان عزیز کلاس 101 دهم ریاضی دبیرستان شاهد حضرت علی اکبر می رساند که زمان برگزاری آزمون فصل اول ، روز سه شنبه 9 مهرماه ، زنگ دوم در سالن امتحانات خواهد بود",
-        image: "https://via.placeholder.com/150"
-    },
-    {
-        header: "انتشار جزوه",
-        title: "انتشار جزوه فصل اول ریاضی دهم",
-        subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
-        content: "با سلام خدمت دانش اموزان عزیز، فایل جزوه دست نویس فصل اول در سایت آکادمی، بارگزاری شد. امیدوارم بهترین استفاده را ببرید",
-        image: "https://via.placeholder.com/150"
-    },
-    {
-        header: "اطلاعیه انتشار نمره و آزمون",
-        title: "انتشار نمره آزمون 1403/07/08 دبیرستان ایزدی به همراه سوال آزمون و پاسخنامه",
-        subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
-        content: "به اطلاع دانش اموزان عزیز کلاس 101 دهم ریاضی دبیرستان شاهد حضرت علی اکبر می رساند که زمان برگزاری آزمون فصل اول ، روز سه شنبه 9 مهرماه ، زنگ دوم در سالن امتحانات خواهد بود",
-        image: "https://via.placeholder.com/150"
-    },
-    {
-        header: "دانستنی های ریاضی",
-        title: "زمان برگزاری آزمون مهرماه دبیرستان شاهد",
-        subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
-        content: "به اطلاع دانش اموزان عزیز کلاس 101 دهم ریاضی دبیرستان شاهد حضرت علی اکبر می رساند که زمان برگزاری آزمون فصل اول ، روز سه شنبه 9 مهرماه ، زنگ دوم در سالن امتحانات خواهد بود",
-        image: "https://via.placeholder.com/150"
-    },
-    // Add more news items as needed
-];
-
-const newsContainer = document.getElementById('news-boxes');
-
-newsData.forEach(news => {
-    const box = document.createElement('div');
-    box.className = 'news-box';
-
-    box.innerHTML = `
-        <img src="${news.image}" alt="${news.title}">
-        <div class="news-content">
-            <h3>${news.header}</h3>
-            <h4>${news.title}</h4>
-            <p>${news.subtitle}</p>
-            <p>${news.content}</p>
-        </div>
-    `;
-
-    newsContainer.appendChild(box);
-});
