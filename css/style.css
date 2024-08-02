@@ -265,11 +265,11 @@ h2 {
 
 /* استایل کلی تایمر */
 #countdown {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* دو ستون */
   gap: 1%;
-  justify-content: center;
+  justify-items: center;
+  margin: 0 auto;
 }
 
 /* Media Queries for responsiveness */
