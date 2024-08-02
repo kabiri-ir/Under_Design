@@ -53,10 +53,11 @@ h2 {
 }
 
 #countdown {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* دو ستون */
   gap: 1%;
-  justify-content: center;
+  justify-items: center;
+  margin: 0 auto;
 }
 
 .time-section {
@@ -191,22 +192,6 @@ h2 {
   font-size: 1.2em;
 }
 
-.close {
-  color: #aaa;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-}
-
 /* استایل مدال دوم */
 #messageModal .modal-content {
   padding: 20px; /* افزایش padding برای فضای بیشتر */
@@ -263,31 +248,20 @@ h2 {
   background-color: #45a049;
 }
 
-/* استایل کلی تایمر */
-#countdown {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* دو ستون */
-  gap: 1%;
-  justify-items: center;
-  margin: 0 auto;
-}
-
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
   .container h1 {
-    font-size: 2em;
+      font-size: 2em;
   }
 
   #countdown {
-    flex-direction: row;
-    justify-content: center;
+    grid-template-columns: 1fr; /* یک ستون */
+    grid-template-rows: repeat(2, auto); /* دو ردیف */
     gap: 1%;
-    flex-wrap: wrap;
   }
 
   .time-section {
     margin: 1%;
-    flex: 1 0 22%; /* تنظیم برای نمایش دو به دو در تبلت‌ها */
   }
 
   .email-form {
@@ -314,29 +288,49 @@ h2 {
   }
 }
 
-
-/* استایل برای تایمر در موبایل‌ها */
 @media (max-width: 480px) {
+  .container h1 {
+    font-size: 1.5em;
+  }
+
   #countdown {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* دو ستون با اندازه برابر */
-    grid-template-rows: 1fr 1fr; /* دو ردیف با اندازه برابر */
-    gap: 10px; /* فاصله بین سلول‌ها */
-    align-items: center;
-    justify-items: center;
+    grid-template-columns: 1fr; /* یک ستون */
+    grid-template-rows: repeat(2, auto); /* دو ردیف */
+    gap: 1%;
   }
 
   .time-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 1%;
   }
 
-  .time {
-    font-size: 2em; /* اندازه فونت کوچکتر برای موبایل‌ها */
+  .email-form {
+    padding: 1%;
+    margin: 2% auto;
   }
 
-  .label {
-    font-size: 0.8em; /* اندازه فونت کوچکتر برای موبایل‌ها */
+  .email-form h2 {
+    font-size: 1em;
+  }
+
+  .email-form input[type="email"] {
+    width: calc(100% - 16px);
+  }
+
+  .email-form button {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+
+  .action-buttons .styled-button {
+    font-size: 0.9em;
+    padding: 10px 20px;
+  }
+}
+
+/* نمایش 2 در 2 برای حالت دسکتاپ */
+@media (min-width: 769px) {
+  #countdown {
+    grid-template-columns: repeat(2, 1fr); /* دو ستون */
+    grid-template-rows: repeat(2, auto); /* دو ردیف */
   }
 }
