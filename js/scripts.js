@@ -60,13 +60,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // تنظیمات تایمر برای 150 روز
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 150); // تنظیم تاریخ هدف به 150 روز بعد از تاریخ فعلی
+    // تنظیمات تایمر
+    const countdownKey = 'countdownEndTime';
+    let targetDate;
+
+    // بررسی وجود زمان باقی‌مانده در localStorage
+    const storedEndTime = localStorage.getItem(countdownKey);
+    if (storedEndTime) {
+        targetDate = new Date(parseInt(storedEndTime, 10));
+    } else {
+        // اگر موجود نیست، تنظیم تاریخ هدف برای 150 روز بعد از حال حاضر
+        targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 150);
+        localStorage.setItem(countdownKey, targetDate.getTime());
+    }
 
     function updateCountdown() {
         const now = new Date().getTime();
-        const distance = targetDate.getTime() - now;
+        const distance = targetDate - now;
 
         if (distance < 0) {
             clearInterval(interval);
@@ -91,5 +102,4 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown(); // به‌روزرسانی تایمر در بارگذاری اولیه
     const interval = setInterval(updateCountdown, 1000); // به‌روزرسانی هر ثانیه
 });
-
 
