@@ -251,11 +251,11 @@ h2 {
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
   .container h1 {
-      font-size: 2em;
+    font-size: 2em;
   }
 
   #countdown {
-    grid-template-columns: 1fr; /* یک ستون */
+    grid-template-columns: repeat(2, 1fr); /* دو ستون */
     grid-template-rows: repeat(2, auto); /* دو ردیف */
     gap: 1%;
   }
@@ -294,7 +294,7 @@ h2 {
   }
 
   #countdown {
-    grid-template-columns: 1fr; /* یک ستون */
+    grid-template-columns: repeat(2, 1fr); /* دو ستون */
     grid-template-rows: repeat(2, auto); /* دو ردیف */
     gap: 1%;
   }
