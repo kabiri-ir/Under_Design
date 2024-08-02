@@ -2,12 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginModal = document.getElementById("loginModal");
     const successModal = document.getElementById("successModal");
     const messageModal = document.getElementById("messageModal");
+    const downloadModal = document.getElementById("downloadModal");
 
     const openLoginModalBtn = document.getElementById("openLoginModalBtn");
+    const openDownloadModalBtn = document.getElementById("openDownloadModalBtn");
     const loginBtn = document.getElementById("loginBtn");
     const closeButtons = document.getElementsByClassName("close");
     const closeSuccessModalBtn = document.getElementById("closeSuccessModalBtn");
     const closeMessageModalBtn = document.getElementById("closeMessageModalBtn");
+    const closeDownloadModalBtn = document.getElementById("closeDownloadModalBtn");
 
     const errorMessage = document.getElementById("error-message");
     const userMessage = document.getElementById("user-message");
@@ -31,18 +34,35 @@ document.addEventListener("DOMContentLoaded", () => {
         loginModal.style.display = "block";
     }
 
-    loginBtn.onclick = function() {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        if (userCredentials[username] && userCredentials[username].password === password) {
-            loginModal.style.display = "none";
-            userMessage.innerText = userCredentials[username].message;
-            messageModal.style.display = "block";
-        } else {
-            errorMessage.style.display = "block";
-        }
+    // مدیریت نمایش مدال دانلود
+    openDownloadModalBtn.onclick = function() {
+        downloadModal.style.display = "block";
     }
+
+    // مدیریت دکمه‌های مدال دانلود
+    const fileButtons = [
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+        { name: " سوالات آزمون 1403/07/08 با پاسخنامه دبیرستان شاهد", url: "files/14030416p7976f1300.pdf" },
+    ];
+
+    const fileButtonsContainer = document.getElementById("fileButtonsContainer");
+
+    fileButtons.forEach(file => {
+        const button = document.createElement("button");
+        button.className = "file-download-button";
+        button.innerText = file.name;
+        button.onclick = () => window.location.href = file.url;
+        fileButtonsContainer.appendChild(button);
+    });
 
     // مدیریت بستن مدال‌ها
     Array.from(closeButtons).forEach(button => {
@@ -50,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             loginModal.style.display = "none";
             successModal.style.display = "none";
             messageModal.style.display = "none";
+            downloadModal.style.display = "none";
         }
     });
 
@@ -61,6 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
         messageModal.style.display = "none";
     }
 
+    closeDownloadModalBtn.onclick = function() {
+        downloadModal.style.display = "none";
+    }
+
     window.onclick = function(event) {
         if (event.target == loginModal) {
             loginModal.style.display = "none";
@@ -70,6 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (event.target == messageModal) {
             messageModal.style.display = "none";
+        }
+        if (event.target == downloadModal) {
+            downloadModal.style.display = "none";
         }
     }
 
@@ -134,3 +162,4 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCountdown(); // به‌روزرسانی تایمر در بارگذاری اولیه
     const interval = setInterval(updateCountdown, 1000); // به‌روزرسانی هر ثانیه
 });
+

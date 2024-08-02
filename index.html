@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="fa">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv='cache-control' content='no-cache'> 
-	<meta http-equiv='expires' content='0'> 
-	<meta http-equiv='pragma' content='no-cache'>
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
     <title>آکادمی آموزشی یونس کبیری</title>
     <link rel="icon" type="image/x-icon" href="pics/android-chrome.png">
-    <link rel="stylesheet" href="css/style.css?v=1.0">
-
+    <link rel="stylesheet" href="css/style.css?v=1.1">
 </head>
+
 <body>
     <div class="container">
         <p style="text-align: center;">
@@ -44,8 +45,8 @@
     </div>
 
     <div class="action-buttons">
+        <button id="openDownloadModalBtn" class="styled-button large-button">دانلود آزمون و جزوه</button>
         <button id="openLoginModalBtn" class="styled-button large-button">سامانه اعلام نمرات</button>
-        <a href="files/14030416p7976f1300.pdf" download class="styled-button large-button">دانلود آخرین آزمون</a>
     </div>
 
     <div class="email-form">
@@ -56,19 +57,31 @@
         </form>
     </div>
 
+    <!-- مدال دانلود فایل -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeDownloadModalBtn">&times;</span>
+            <h2>دانلود آزمون و جزوه</h2>
+            <div id="fileButtonsContainer" class="file-buttons-container">
+                <!-- دکمه‌های دانلود فایل‌ها به طور داینامیک با جاوا اسکریپت اضافه می‌شوند -->
+            </div>
+        </div>
+    </div>
+
     <!-- مدال پیغام موفقیت -->
     <div id="successModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" id="closeSuccessModalBtn">&times;</span>
             <h2>پیام سامانه</h2>
             <p id="success-message">ایمیل شما با موفقیت ثبت شد</p>
             <button id="closeSuccessModalBtn">بستن</button>
         </div>
     </div>
 
+    <!-- مدال ورود -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" id="closeLoginModalBtn">&times;</span>
             <h2>ورود به سامانه</h2>
             <div class="input-container">
                 <label for="username">نام کاربری</label>
@@ -94,6 +107,6 @@
 
     <script src="js/version-check.js"></script>
     <script defer src="js/scripts.js?v=1.1"></script>
-
 </body>
+
 </html>
