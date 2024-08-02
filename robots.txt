@@ -1,0 +1,31 @@
+# تنظیمات عمومی برای تمامی موتورهای جستجو
+User-agent: *
+# مسدود کردن دسترسی به دایرکتوری‌های غیر ضروری
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cart/
+Disallow: /checkout/
+
+# اجازه دادن به دسترسی به فایل‌های CSS و JS
+Allow: /public/
+Allow: /assets/
+Allow: /styles/
+Allow: /scripts/
+
+# اضافه کردن آدرس نقشه سایت
+Sitemap: https://kabiriac.ir/sitemap.xml
+
+# تنظیمات خاص برای Googlebot
+User-agent: Googlebot
+Disallow: /no-google/
+
+# تنظیمات خاص برای Bingbot
+User-agent: Bingbot
+Disallow: /no-bing/
+
+# جلوگیری از ایندکس شدن صفحات جستجو و پارامترهای URL
+Disallow: /search?
+Disallow: /?page=
+
+# جلوگیری از ایندکس شدن محتوای در حال توسعه
+Disallow: /staging/
