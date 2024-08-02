@@ -163,3 +163,56 @@ document.addEventListener("DOMContentLoaded", () => {
     const interval = setInterval(updateCountdown, 1000); // به‌روزرسانی هر ثانیه
 });
 
+// script.js
+
+// Data for the news items
+const newsData = [
+    {
+        header: "اطلاعیه آزمون",
+        title: "زمان برگزاری آزمون مهرماه دبیرستان شاهد",
+        subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
+        content: "به اطلاع دانش اموزان عزیز کلاس 101 دهم ریاضی دبیرستان شاهد حضرت علی اکبر می رساند که زمان برگزاری آزمون فصل اول ، روز سه شنبه 9 مهرماه ، زنگ دوم در سالن امتحانات خواهد بود",
+        image: "https://via.placeholder.com/150"
+    },
+    {
+        header: "انتشار جزوه",
+        title: "انتشار جزوه فصل اول ریاضی دهم",
+        subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
+        content: "با سلام خدمت دانش اموزان عزیز، فایل جزوه دست نویس فصل اول در سایت آکادمی، بارگزاری شد. امیدوارم بهترین استفاده را ببرید",
+        image: "https://via.placeholder.com/150"
+    },
+    {
+        header: "اطلاعیه انتشار نمره و آزمون",
+        title: "انتشار نمره آزمون 1403/07/08 دبیرستان ایزدی به همراه سوال آزمون و پاسخنامه",
+        subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
+        content: "به اطلاع دانش اموزان عزیز کلاس 101 دهم ریاضی دبیرستان شاهد حضرت علی اکبر می رساند که زمان برگزاری آزمون فصل اول ، روز سه شنبه 9 مهرماه ، زنگ دوم در سالن امتحانات خواهد بود",
+        image: "https://via.placeholder.com/150"
+    },
+    {
+        header: "دانستنی های ریاضی",
+        title: "زمان برگزاری آزمون مهرماه دبیرستان شاهد",
+        subtitle: "[تاریخ انتشار اطلاعیه : 1403/07/08/21:20]",
+        content: "به اطلاع دانش اموزان عزیز کلاس 101 دهم ریاضی دبیرستان شاهد حضرت علی اکبر می رساند که زمان برگزاری آزمون فصل اول ، روز سه شنبه 9 مهرماه ، زنگ دوم در سالن امتحانات خواهد بود",
+        image: "https://via.placeholder.com/150"
+    },
+    // Add more news items as needed
+];
+
+const newsContainer = document.getElementById('news-boxes');
+
+newsData.forEach(news => {
+    const box = document.createElement('div');
+    box.className = 'news-box';
+
+    box.innerHTML = `
+        <img src="${news.image}" alt="${news.title}">
+        <div class="news-content">
+            <h3>${news.header}</h3>
+            <h4>${news.title}</h4>
+            <p>${news.subtitle}</p>
+            <p>${news.content}</p>
+        </div>
+    `;
+
+    newsContainer.appendChild(box);
+});
