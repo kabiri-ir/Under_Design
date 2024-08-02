@@ -1,20 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     const loginModal = document.getElementById("loginModal");
+    const successModal = document.getElementById("successModal");
     const messageModal = document.getElementById("messageModal");
 
     const openLoginModalBtn = document.getElementById("openLoginModalBtn");
     const loginBtn = document.getElementById("loginBtn");
     const closeButtons = document.getElementsByClassName("close");
+    const closeSuccessModalBtn = document.getElementById("closeSuccessModalBtn");
     const closeMessageModalBtn = document.getElementById("closeMessageModalBtn");
 
     const errorMessage = document.getElementById("error-message");
     const userMessage = document.getElementById("user-message");
+    const successMessage = document.getElementById("success-message");
 
     const userCredentials = {
         "youneskabirishahed": {
             password: "0370882105",
-            message: " جناب آقای یونس کبیری با سلام \n " +
-             "نمره آزمون شما در تاریخ 1403/07/08 برابر است با : 18.5" 
+            message: "جناب آقای یونس کبیری با سلام \n " +
+                     "نمره آزمون شما در تاریخ 1403/07/08 برابر است با : 18.5"
         },
         "user2": {
             password: "pass2",
@@ -23,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // می‌توانید کاربران بیشتری به این شیء اضافه کنید
     };
 
+    // مدیریت نمایش مدال ورود
     openLoginModalBtn.onclick = function() {
         loginModal.style.display = "block";
     }
@@ -40,12 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // مدیریت بستن مدال‌ها
     Array.from(closeButtons).forEach(button => {
         button.onclick = function() {
             loginModal.style.display = "none";
+            successModal.style.display = "none";
             messageModal.style.display = "none";
         }
     });
+
+    closeSuccessModalBtn.onclick = function() {
+        successModal.style.display = "none";
+    }
 
     closeMessageModalBtn.onclick = function() {
         messageModal.style.display = "none";
@@ -55,9 +65,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target == loginModal) {
             loginModal.style.display = "none";
         }
+        if (event.target == successModal) {
+            successModal.style.display = "none";
+        }
         if (event.target == messageModal) {
             messageModal.style.display = "none";
         }
+    }
+
+    // مدیریت فرم ایمیل
+    const emailForm = document.getElementById("emailForm");
+    emailForm.onsubmit = function(event) {
+        event.preventDefault(); // جلوگیری از ارسال فرم به صورت پیش‌فرض
+
+        const email = document.getElementById("email").value;
+        if (validateEmail(email)) {
+            // نمایش مدال موفقیت
+            successModal.style.display = "block";
+        } else {
+            alert("لطفاً یک ایمیل معتبر وارد کنید.");
+        }
+    }
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
 
     // تنظیمات تایمر
@@ -102,4 +134,3 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown(); // به‌روزرسانی تایمر در بارگذاری اولیه
     const interval = setInterval(updateCountdown, 1000); // به‌روزرسانی هر ثانیه
 });
-
