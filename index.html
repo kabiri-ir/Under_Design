@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv='cache-control' content='no-cache'> 
 	<meta http-equiv='expires' content='0'> 
@@ -9,78 +9,77 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link type="image/png" sizes="16x16" rel="icon" href="pics/android-chrome-512x512.png">
 	<title>آکادمی آموزشی یونس کبیری</title>
-	<link rel="stylesheet" href="css/reset.min.css">
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link type="text/css" href="css/font-awesome.min.css" rel="stylesheet" />
-	<link type="text/css" href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="bg-img1 size1 flex-w flex-c-m p-t-55 p-b-55 p-l-15 p-r-15" style="background-image: url('pics/bg01.jpg');">
-		<div class="wsize1 bor1 bg1 p-t-175 p-b-45 p-l-15 p-r-15 respon1">
-			<!-- start logo -->
-			<p style="text-align: center;">بوی مدینه می‌وزد از شهر ما، بیا
-				 ما در جوار حضرت زهرا نشسته‌ایم
-				(یا حضرت معصومه - سلام اله علیها)</p>
-			<h1 style="text-align: center;">
-				آکادمی آموزشی یونس کبیری
-			</h1>
+    <div class="container">
+        <p style="text-align: center;">بوی مدینه می‌وزد از شهر ما، بیا
+            ما در جوار حضرت زهرا نشسته‌ایم
+           (یا حضرت معصومه - سلام اله علیها)</p>
+       <h1 style="text-align: center;">
+           آکادمی آموزشی یونس کبیری
+       </h1>
+        <h2>سایت در حال طراحی می باشد</h2>
+        <div id="countdown">
+            <div class="time-section">
+                <span id="days" class="time">00</span>
+                <div class="label">روز</div>
+            </div>
+            <div class="time-section">
+                <span id="hours" class="time">00</span>
+                <div class="label">ساعت</div>
+            </div>
+            <div class="time-section">
+                <span id="minutes" class="time">00</span>
+                <div class="label">دقیقه</div>
+            </div>
+            <div class="time-section">
+                <span id="seconds" class="time">00</span>
+                <div class="label">ثانیه</div>
+            </div>
+        </div>
+    </div>
 
+    <div class="action-buttons">
+        <button id="openLoginModalBtn" class="styled-button large-button">سامانه اعلام نمرات</button>
+        <a href="path/to/your/file.pdf" download class="styled-button large-button">دانلود آخرین آزمون</a>
+    </div>
 
-			<!-- end logo -->
+    <div class="email-form">
+        <h2>برای دریافت اخبار و به‌روزرسانی‌ها ایمیل خود را وارد کنید:</h2>
+        <form id="emailForm" action="save_email.php" method="POST">
+            <input type="email" name="email" id="email" placeholder="ایمیل شما" required>
+            <button type="submit" class="styled-button">ارسال</button>
+        </form>
+    </div>
 
-			<!-- start slogan -->
-			<p class="txt-center m1-txt1 p-t-33 p-b-68">
-				وب سایت در حال طراحی است!
-			</p>
-			<!-- end slogan -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>ورود به سامانه</h2>
+            <div class="input-container">
+                <label for="username">نام کاربری</label>
+                <input type="text" id="username" placeholder="نام کاربری">
+            </div>
+            <div class="input-container">
+                <label for="password">رمز عبور</label>
+                <input type="password" id="password" placeholder="رمز عبور">
+            </div>
+            <button id="loginBtn">ورود</button>
+            <p id="error-message" style="color: red; display: none;">نام کاربری یا رمز عبور نادرست است.</p>
+        </div>
+    </div>
 
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>پیام سامانه</h2>
+            <p id="user-message"></p>
+            <button id="closeMessageModalBtn">خروج</button>
+        </div>
+    </div>
 
-			<!-- start counter -->
-			<div class="wsize2 flex-w flex-c hsize1 cd100">
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 days">30</span>
-					<span class="s1-txt1">روز</span>
-				</div>
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 hours">17</span>
-					<span class="s1-txt1">ساعت</span>
-				</div>
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 minutes">50</span>
-					<span class="s1-txt1">دقیقه</span>
-				</div>
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 seconds">39</span>
-					<span class="s1-txt1">ثانیه</span>
-				</div>
-			</div>
-			<!-- end counter -->
-
-			<div style="display: flex; align-items: center; justify-content: center;">
-				<a href="https://github.com/kabiri-ir"> <button style="background-color: #846add; color: white; width:300px ; height: auto; border-radius: 10px; font-size: 25px;">ارتباط با مرکز پشتیبانی</button></a>
-			</div>
-
-			<!-- start newsletter -->
-			<form class="flex-w flex-c-m contact100-form validate-form p-t-55">
-				<div class="wrap-input100 validate-input where1" data-validate = "پست الکترونیک الزامی است : ex@abc.xyz">
-					<input class="s1-txt2 placeholder0 input100" type="text" name="email" placeholder="پست الکترونیک">
-					<span class="focus-input100"></span>
-				</div>
-				<button class="flex-c-m s1-txt3 size3 how-btn trans-04 where1">
-					باخبر شوید
-				</button>
-			</form>
-			<!-- end newsletter -->
-			<p class="s1-txt4 txt-center p-t-10">
-				ما قول می دهیم ایمیل spam<span class="bor2"> هرگز </span> نفرستیم
-			</p>
-		</div>
-	</div>
-
-	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/countdowntime.js"></script>
-	<!-- set the counter -->
-	<script src="js/counter.js"></script>
-	<script  src="js/scripts.js"></script>
-</body><!-- This template has been downloaded from Webrubik.com -->
+    <script defer src="js/scripts.js"></script>
+</body>
 </html>
+

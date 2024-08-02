@@ -1,57 +1,94 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const loginModal = document.getElementById("loginModal");
+    const messageModal = document.getElementById("messageModal");
 
-(function ($) {
-    "use strict";
+    const openLoginModalBtn = document.getElementById("openLoginModalBtn");
+    const loginBtn = document.getElementById("loginBtn");
+    const closeButtons = document.getElementsByClassName("close");
+    const closeMessageModalBtn = document.getElementById("closeMessageModalBtn");
 
-    /*==================================================================
-     [ Validate ]*/
-    var input = $('.validate-input .input100');
+    const errorMessage = document.getElementById("error-message");
+    const userMessage = document.getElementById("user-message");
 
-    $('.validate-form').on('submit',function(){
-        var check = true;
+    const userCredentials = {
+        "youneskabirishahed": {
+            password: "0370882105",
+            message: " جناب آقای یونس کبیری با سلام \n " +
+             "نمره آزمون شما در تاریخ 1403/07/08 برابر است با : 18.5" 
+        },
+        "user2": {
+            password: "pass2",
+            message: "پیام لورم مخصوص کاربر user2: لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است..."
+        },
+        // می‌توانید کاربران بیشتری به این شیء اضافه کنید
+    };
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
+    openLoginModalBtn.onclick = function() {
+        loginModal.style.display = "block";
+    }
+
+    loginBtn.onclick = function() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (userCredentials[username] && userCredentials[username].password === password) {
+            loginModal.style.display = "none";
+            userMessage.innerText = userCredentials[username].message;
+            messageModal.style.display = "block";
+        } else {
+            errorMessage.style.display = "block";
         }
+    }
 
-        return check;
+    Array.from(closeButtons).forEach(button => {
+        button.onclick = function() {
+            loginModal.style.display = "none";
+            messageModal.style.display = "none";
+        }
     });
 
+    closeMessageModalBtn.onclick = function() {
+        messageModal.style.display = "none";
+    }
 
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-            hideValidate(this);
-        });
-    });
-
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
+    window.onclick = function(event) {
+        if (event.target == loginModal) {
+            loginModal.style.display = "none";
         }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
+        if (event.target == messageModal) {
+            messageModal.style.display = "none";
         }
     }
 
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
+    // تنظیمات تایمر
+    const targetDate = new Date('2024-09-01T00:00:00').getTime(); // تاریخ پایان تایمر
 
-        $(thisAlert).addClass('alert-validate');
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            clearInterval(interval);
+            document.getElementById('days').innerText = "00";
+            document.getElementById('hours').innerText = "00";
+            document.getElementById('minutes').innerText = "00";
+            document.getElementById('seconds').innerText = "00";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = days.toString().padStart(2, '0');
+        document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
     }
 
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).removeClass('alert-validate');
-    }
+    updateCountdown(); // به‌روزرسانی تایمر در بارگذاری اولیه
+    const interval = setInterval(updateCountdown, 1000); // به‌روزرسانی هر ثانیه
+});
 
 
-
-
-})(jQuery);

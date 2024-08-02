@@ -1,504 +1,343 @@
-/* CSS Document */
-@charset "UTF-8";
-/*------------------------------------------------------------------
-Project:  ComingSoon
-Version:
-Last change:
-Assigned to:  Bach Le
-Primary use:
--------------------------------------------------------------------*/
-
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
+/* تعریف فونت‌ها */
 @font-face {
-  font-family: 'Vazir';
-  src: url('../fonts/Vazir.eot');
-  src: local('../fonts/Vazir'), url('../fonts/Vazir.woff') format('woff'), url('../fonts/Vazir.ttf') format('truetype'), url('../fonts/Vazir.svg') format('svg');
+  font-family: 'Kalamehb';
+  src: url('../fonts/KalamehWeb-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-*{
-  font-family: 'Vazir';
+@font-face {
+  font-family: 'Kalamehbl';
+  src: url('../fonts/KalamehWeb-Black.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kalameht';
+  src: url('../fonts/KalamehWeb-Thin.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: "Vazir";
-  direction: rtl;
+  font-family: 'kalameht', sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* جلوگیری از اسکرول افقی */
 }
-/*//////////////////////////////////////////////////////////////////
-[ RS PLUGIN ]*/
-/*---------------------------------------------*/
-.container {max-width: 1200px;}
+
+.container {
+  background-color: #282c34;
+  color: white;
+  padding: 2% 5%;
+  margin-bottom: 2%;
+}
 
 h1 {
-  font-size: 45px;
+  font-size: 60px;
+  font-family: "Kalamehbl";
 }
 
-
-
-/*//////////////////////////////////////////////////////////////////
-[ Form ]*/
-.contact100-form {
-  width: 100%;
+h2 {
+  font-size: 1.7em;
+  margin-bottom: 20px;
 }
 
-/*------------------------------------------------------------------
-[ Input ]*/
-
-.wrap-input100 {
-  width: 220px;
-  max-width: calc(100% - 10px);
-  position: relative;
-  background-color: #e6e6e6;
-  height: 40px;
-  border: 0px solid transparent;
-  border-radius: 5px;
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 
-/*---------------------------------------------*/
-.input100 {
-  display: block;
-  width: 100%;
-  background: transparent;
+.time-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5%;
 }
 
-input.input100 {
-  height: 100%;
-  padding: 0 20px 0 20px;
+.time {
+  font-family: 'kalamehb', sans-serif;
+  font-size: 3em; /* بزرگ‌تر از قبل */
+  font-weight: bold;
 }
 
-
-/*------------------------------------------------------------------
-[ Focus Input ]*/
-
-.focus-input100 {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  right: 0px;
-  pointer-events: none;
-  border: 1px solid #846add;
-  border-radius: 5px;
-  visibility: hidden;
-  opacity: 0;
-
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-
-  -webkit-transform: scaleX(1.1) scaleY(1.2);
-  -moz-transform: scaleX(1.1) scaleY(1.2);
-  -ms-transform: scaleX(1.1) scaleY(1.2);
-  -o-transform: scaleX(1.1) scaleY(1.2);
-  transform: scaleX(1.1) scaleY(1.2);
+.label {
+  font-size: 1em;
+  color: #ccc;
+  font-family: 'kalamehb', sans-serif;
 }
 
-.input100:focus + .focus-input100 {
-  visibility: visible;
-  opacity: 1;
-
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
+.action-buttons {
+  margin: 2% 0;
 }
 
-
-/*------------------------------------------------------------------
-[ Alert validate ]*/
-
-.validate-input {
-  position: relative;
-}
-
-.alert-validate::before {
-  content: attr(data-validate);
-  position: absolute;
-  max-width: 70%;
-  background-color: #fff;
-  border: 1px solid #c80000;
-  border-radius: 2px;
-  padding: 4px 25px 4px 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 12px;
-  pointer-events: none;
-  color: #c80000;
-  font-size: 13px;
-  line-height: 1.4;
-  text-align: right;
-
-  visibility: hidden;
-  opacity: 0;
-
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-}
-
-.alert-validate::after {
-  content: "\f071";
-  font-family: FontAwesome;
-  display: block;
-  position: absolute;
-  color: #c80000;
-  font-size: 14px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 18px;
-}
-
-.alert-validate:hover:before {
-  visibility: visible;
-  opacity: 1;
-}
-
-@media (max-width: 992px) {
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-
-
-/*==================================================================
-    TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-==================================================================*/
-
-/*==================================================================
-[ Color ]*/
-.cl0 {color: #fff;}
-
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ S-Text 0 - 15 ]*/
-.s1-txt1 {
-  font-size: 14px;
-  color: #fff;
-  line-height: 1;
-}
-
-.s1-txt2 {
-  font-size: 15px;
-  color: #846add;
-  line-height: 1.4;
-}
-
-.s1-txt3 {
-  font-size: 15px;
-  color: #fff;
-  line-height: 1.4;
-}
-
-.s1-txt4 {
-  font-size: 14px;
-  color: #999999;
-  line-height: 1.5;
-}
-
-
-/*//////////////////////////////////////////////////////////////////
-[ M-Text 16 - 25 ]*/
-.m1-txt1 {
-  font-size: 25px;
-  color: #999999;
-  line-height: 1.2;
-}
-
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ L-Text >= 26 ]*/
-.l1-txt1 {
-  font-size: 40px;
-  line-height: 1;
-  color: #fff;
-}
-
-
-/*==================================================================
-   SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
-==================================================================*/
-/*//////////////////////////////////////////////////////////////////
-[ Size ]*/
-.size1 {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.size2 {
-  width: 90px;
-  height: 100px;
-}
-
-.size3 {
-  min-width: 120px;
-  height: 40px;
-}
-
-/*//////////////////////////////////////////////////////////////////
-[ Width ]*/
-.wsize1 {
-  max-width: 100%;
-  width: 880px;
-}
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ Height ]*/
-.hsize1 {
-  min-height: 230px;
-}
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ Background ]*/
-.bg0 {background-color: #fff;}
-.bg1 {background-color: rgba(255,255,255,0.8);}
-
-.bg-img1 {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ Border ]*/
-.bor1 {
-  border-radius: 18px;
-}
-
-.bor2 {
-  border-bottom: 1px solid #999999;
-}
-
-
-
-/*==================================================================
-   WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE
-==================================================================*/
-.where1 {
-  margin: 20px 5px 0px 5px;
-}
-
-
-/*==================================================================
- HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW
-==================================================================*/
-.placeholder0::-webkit-input-placeholder { color: #999999;}
-.placeholder0:-moz-placeholder { color: #999999;}
-.placeholder0::-moz-placeholder { color: #999999;}
-.placeholder0:-ms-input-placeholder { color: #999999;}
-
-/*---------------------------------------------*/
-.wrappic1 {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-.wrappic1 img {
-  max-width: 100%;
-}
-
-/*---------------------------------------------*/
-.how-countdown {
-  background-color: #333333;
+.styled-button {
+  font-family: 'kalamehb', sans-serif;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 30px;
+  border: none;
   border-radius: 10px;
-  margin: 0px 18px 25px 18px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.5%;
 }
 
-/*---------------------------------------------*/
-.how-btn {
-  padding: 0 20px;
-  background-color: #846add;
+.styled-button:hover {
+  background-color: #45a049;
+}
+
+.large-button {
+  padding: 20px 40px;
+  font-size: 1.5em;
+}
+
+.email-form {
+  background-color: #fff;
+  padding: 2%;
+  margin: 2% auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 600px;
+  
+  
+}
+
+.email-form h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.email-form input[type="email"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1em;
+  margin-bottom: 10px;
+  font-family: 'kalameht', sans-serif;
+  font-weight: bolder;
 }
 
-.how-btn:hover {
-  background-color: #333333;
+.email-form button {
+  font-family: 'kalamehb', sans-serif;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ Pseudo ]*/
-
-/*------------------------------------------------------------------
-[ Focus ]*/
-.focus-in0:focus::-webkit-input-placeholder { color:transparent; }
-.focus-in0:focus:-moz-placeholder { color:transparent; }
-.focus-in0:focus::-moz-placeholder { color:transparent; }
-.focus-in0:focus:-ms-input-placeholder { color:transparent; }
-
-
-/*------------------------------------------------------------------
-[ Hover ]*/
-.hov-cl0:hover {color: #fff;}
-.hov-bg0:hover {background-color: #fff;}
-
-/*---------------------------------------------*/
-
-
-
-
-
-
-
-/*==================================================================
-  RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE
-==================================================================*/
-
-
-/*//////////////////////////////////////////////////////////////////
-[ XL ]*/
-@media (max-width: 1200px) {
-  .m-0-xl {margin: 0;}
-  .m-lr-0-xl {margin-right: 0; margin-left: 0;}
-  .m-lr-15-xl {margin-right: 15px; margin-left: 15px;}
-  .m-l-0-xl {margin-right: 0;}
-  .m-r-0-xl {margin-left: 0;}
-  .m-l-15-xl {margin-right: 15px;}
-  .m-r-15-xl {margin-left: 15px;}
-
-  .p-0-xl {padding: 0;}
-  .p-lr-0-xl {padding-right: 0; padding-left: 0;}
-  .p-lr-15-xl {padding-right: 15px; padding-left: 15px;}
-  .p-l-0-xl {padding-right: 0;}
-  .p-r-0-xl {padding-left: 0;}
-  .p-l-15-xl {padding-right: 15px;}
-  .p-r-15-xl {padding-left: 15px;}
-
-  .w-full-xl {width: 100%;}
-
-  /*---------------------------------------------*/
-
+.email-form button:hover {
+  background-color: #45a049;
 }
 
+.email-form p {
+  font-size: 1em;
+  margin-top: 10px;
+}
 
-/*//////////////////////////////////////////////////////////////////
-[ LG ]*/
-@media (max-width: 992px) {
-  .m-0-lg {margin: 0;}
-  .m-lr-0-lg {margin-right: 0; margin-left: 0;}
-  .m-lr-15-lg {margin-right: 15px; margin-left: 15px;}
-  .m-l-0-lg {margin-right: 0;}
-  .m-r-0-lg {margin-left: 0;}
-  .m-l-15-lg {margin-right: 15px;}
-  .m-r-15-lg {margin-left: 15px;}
+/* استایل مدال‌ها */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 60px;
+  font-family: 'kalamehb', sans-serif;
+}
 
-  .p-0-lg {padding: 0;}
-  .p-lr-0-lg {padding-right: 0; padding-left: 0;}
-  .p-lr-15-lg {padding-right: 15px; padding-left: 15px;}
-  .p-l-0-lg {padding-right: 0;}
-  .p-r-0-lg{padding-left: 0;}
-  .p-l-15-lg {padding-right: 15px;}
-  .p-r-15-lg {padding-left: 15px;}
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2%;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'kalamehb', sans-serif;
+}
 
-  .w-full-lg {width: 100%;}
+.modal-content h2 {
+  font-family: 'kalamehb', sans-serif;
+  font-size: 1.8em;
+  margin-top: 0;
+}
 
-  /*---------------------------------------------*/
-
+.modal-content p {
+  font-size: 1.2em;
 
 }
 
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-/*//////////////////////////////////////////////////////////////////
-[ MD ]*/
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+/* استایل مدال دوم */
+#messageModal .modal-content {
+  padding: 20px; /* افزایش padding برای فضای بیشتر */
+
+}
+
+#messageModal .modal-content #user-message {
+  background-color: #f8f9fa; /* رنگ پس‌زمینه متفاوت برای متن */
+  border: 1px solid #ddd; /* حاشیه برای جدا کردن متن */
+  border-radius: 8px; /* گوشه‌های گرد */
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* سایه برای برجسته‌تر کردن */
+  font-size: 1.2em; /* اندازه فونت بزرگ‌تر */
+  margin-bottom: 20px; /* فاصله پایین */
+  font-weight: bolder;
+  font-family: 'kalameht', sans-serif; /* فونت متن */
+}
+
+/* استایل اینپوت‌های مدال */
+.modal input[type="text"],
+.modal input[type="password"] {
+  width: calc(100% - 20px);
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.2em; /* بزرگ‌تر از قبل */
+  margin-bottom: 15px;
+  font-family: 'kalameht', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s;
+  font-weight: bolder;
+}
+
+.modal input[type="text"]:focus,
+.modal input[type="password"]:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* دکمه‌های مدال‌ها */
+.modal button {
+  font-family: 'kalamehb', sans-serif;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px;
+}
+
+.modal button:hover {
+  background-color: #45a049;
+}
+
+/* Media Queries for responsiveness */
 @media (max-width: 768px) {
-  .m-0-md {margin: 0;}
-  .m-lr-0-md {margin-right: 0; margin-left: 0;}
-  .m-lr-15-md {margin-right: 15px; margin-left: 15px;}
-  .m-l-0-md {margin-right: 0;}
-  .m-r-0-md {margin-left: 0;}
-  .m-l-15-md {margin-right: 15px;}
-  .m-r-15-md {margin-left: 15px;}
-
-  .p-0-md {padding: 0;}
-  .p-lr-0-md {padding-right: 0; padding-left: 0;}
-  .p-lr-15-md {padding-right: 15px; padding-left: 15px;}
-  .p-l-0-md {padding-right: 0;}
-  .p-r-0-md{padding-left: 0;}
-  .p-l-15-md {padding-right: 15px;}
-  .p-r-15-md {padding-left: 15px;}
-
-  .w-full-md {width: 100%;}
-  /*---------------------------------------------*/
-
-}
-
-
-/*//////////////////////////////////////////////////////////////////
-[ SM ]*/
-@media (max-width: 576px) {
-  .m-0-sm {margin: 0;}
-  .m-lr-0-sm {margin-right: 0; margin-left: 0;}
-  .m-lr-15-sm {margin-right: 15px; margin-left: 15px;}
-  .m-l-0-sm {margin-right: 0;}
-  .m-r-0-sm {margin-left: 0;}
-  .m-l-15-sm {margin-right: 15px;}
-  .m-r-15-sm {margin-left: 15px;}
-
-  .p-0-sm {padding: 0;}
-  .p-lr-0-sm {padding-right: 0; padding-left: 0;}
-  .p-lr-15-sm {padding-right: 15px; padding-left: 15px;}
-  .p-l-0-sm {padding-right: 0;}
-  .p-r-0-sm{padding-left: 0;}
-  .p-l-15-sm {padding-right: 15px;}
-  .p-r-15-sm {padding-left: 15px;}
-
-  .w-full-sm {width: 100%;}
-
-  /*---------------------------------------------*/
-  .respon1 {
-    padding-top: 80px;
+  .container h1 {
+      font-size: 2em;
   }
 
+  #countdown {
+      flex-direction: column;
+  }
+
+  .time-section {
+      margin: 1%;
+  }
+
+  .email-form {
+      padding: 1.5%;
+      margin: 2% auto;
+  }
+
+  .email-form h2 {
+      font-size: 1.2em;
+  }
+
+  .email-form input[type="email"] {
+      width: calc(100% - 18px);
+  }
+
+  .email-form button {
+      padding: 8px 16px;
+      font-size: 0.9em;
+  }
+
+  .action-buttons .styled-button {
+      font-size: 1em;
+      padding: 12px 24px;
+  }
 }
 
-
-/*//////////////////////////////////////////////////////////////////
-[ SSM ]*/
 @media (max-width: 480px) {
-  .m-0-ssm {margin: 0;}
-  .m-lr-0-ssm {margin-right: 0; margin-left: 0;}
-  .m-lr-15-ssm {margin-right: 15px; margin-left: 15px;}
-  .m-l-0-ssm {margin-right: 0;}
-  .m-r-0-ssm {margin-left: 0;}
-  .m-l-15-ssm {margin-right: 15px;}
-  .m-r-15-ssm {margin-left: 15px;}
+  .container h1 {
+      font-size: 1.5em;
+  }
 
-  .p-0-ssm {padding: 0;}
-  .p-lr-0-ssm {padding-right: 0; padding-left: 0;}
-  .p-lr-15-ssm {padding-right: 15px; padding-left: 15px;}
-  .p-l-0-ssm {padding-right: 0;}
-  .p-r-0-ssm{padding-left: 0;}
-  .p-l-15-ssm {padding-right: 15px;}
-  .p-r-15-ssm {padding-left: 15px;}
+  #countdown {
+      flex-direction: column;
+  }
 
-  .w-full-ssm {width: 100%;}
-  /*---------------------------------------------*/
+  .time-section {
+      margin: 1%;
+  }
 
+  .email-form {
+      padding: 1%;
+      margin: 2% auto;
+  }
+
+  .email-form h2 {
+      font-size: 1em;
+  }
+
+  .email-form input[type="email"] {
+      width: calc(100% - 16px);
+  }
+
+  .email-form button {
+      padding: 6px 12px;
+      font-size: 0.8em;
+  }
+
+  .action-buttons .styled-button {
+      font-size: 0.9em;
+      padding: 10px 20px;
+  }
 }
