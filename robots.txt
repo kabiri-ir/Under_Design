@@ -1,31 +1,5 @@
-User-Agent: *
-Disallow:
-
+User-agent: *
 Disallow: /private/
 Disallow: /tmp/
-Disallow: /cart/
-Disallow: /checkout/
-
-
-Allow: /public/
-Allow: /assets/
-Allow: /styles/
-Allow: /scripts/
-
 
 Sitemap: https://kabiriac.ir/sitemap.xml
-
-
-User-agent: Googlebot
-Disallow: /no-google/
-
-
-User-agent: Bingbot
-Disallow: /no-bing/
-
-
-Disallow: /search?
-Disallow: /?page=
-
-
-Disallow: /staging/
