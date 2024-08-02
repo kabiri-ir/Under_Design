@@ -60,12 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // تنظیمات تایمر
-    const targetDate = new Date('2024-09-01T00:00:00').getTime(); // تاریخ پایان تایمر
+    // تنظیمات تایمر برای 150 روز
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 150); // تنظیم تاریخ هدف به 150 روز بعد از تاریخ فعلی
 
     function updateCountdown() {
         const now = new Date().getTime();
-        const distance = targetDate - now;
+        const distance = targetDate.getTime() - now;
 
         if (distance < 0) {
             clearInterval(interval);

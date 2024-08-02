@@ -27,7 +27,7 @@
 }
 
 body {
-  font-family: 'kalameht', sans-serif;
+  font-family: 'Kalameht', sans-serif;
   text-align: center;
   background-color: #f0f0f0;
   margin: 0;
@@ -54,10 +54,9 @@ h2 {
 
 #countdown {
   display: flex;
-  justify-content: center;
-  gap: 1%;
   flex-wrap: wrap;
-  margin: 0 auto;
+  gap: 1%;
+  justify-content: center;
 }
 
 .time-section {
@@ -68,7 +67,7 @@ h2 {
 }
 
 .time {
-  font-family: 'kalamehb', sans-serif;
+  font-family: 'Kalamehb', sans-serif;
   font-size: 3em; /* بزرگ‌تر از قبل */
   font-weight: bold;
 }
@@ -76,7 +75,7 @@ h2 {
 .label {
   font-size: 1em;
   color: #ccc;
-  font-family: 'kalamehb', sans-serif;
+  font-family: 'Kalamehb', sans-serif;
 }
 
 .action-buttons {
@@ -84,7 +83,7 @@ h2 {
 }
 
 .styled-button {
-  font-family: 'kalamehb', sans-serif;
+  font-family: 'Kalamehb', sans-serif;
   background-color: #4CAF50;
   color: white;
   padding: 15px 30px;
@@ -115,8 +114,6 @@ h2 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 90%;
   width: 600px;
-  
-  
 }
 
 .email-form h2 {
@@ -131,12 +128,12 @@ h2 {
   border-radius: 5px;
   font-size: 1em;
   margin-bottom: 10px;
-  font-family: 'kalameht', sans-serif;
+  font-family: 'Kalameht', sans-serif;
   font-weight: bolder;
 }
 
 .email-form button {
-  font-family: 'kalamehb', sans-serif;
+  font-family: 'Kalamehb', sans-serif;
   background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
@@ -168,7 +165,7 @@ h2 {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
   padding-top: 60px;
-  font-family: 'kalamehb', sans-serif;
+  font-family: 'Kalamehb', sans-serif;
 }
 
 .modal-content {
@@ -181,18 +178,17 @@ h2 {
   position: relative;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-family: 'kalamehb', sans-serif;
+  font-family: 'Kalamehb', sans-serif;
 }
 
 .modal-content h2 {
-  font-family: 'kalamehb', sans-serif;
+  font-family: 'Kalamehb', sans-serif;
   font-size: 1.8em;
   margin-top: 0;
 }
 
 .modal-content p {
   font-size: 1.2em;
-
 }
 
 .close {
@@ -210,10 +206,10 @@ h2 {
   color: black;
   text-decoration: none;
 }
+
 /* استایل مدال دوم */
 #messageModal .modal-content {
   padding: 20px; /* افزایش padding برای فضای بیشتر */
-
 }
 
 #messageModal .modal-content #user-message {
@@ -225,7 +221,7 @@ h2 {
   font-size: 1.2em; /* اندازه فونت بزرگ‌تر */
   margin-bottom: 20px; /* فاصله پایین */
   font-weight: bolder;
-  font-family: 'kalameht', sans-serif; /* فونت متن */
+  font-family: 'Kalameht', sans-serif; /* فونت متن */
 }
 
 /* استایل اینپوت‌های مدال */
@@ -237,7 +233,7 @@ h2 {
   border-radius: 5px;
   font-size: 1.2em; /* بزرگ‌تر از قبل */
   margin-bottom: 15px;
-  font-family: 'kalameht', sans-serif;
+  font-family: 'Kalameht', sans-serif;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: border-color 0.3s;
   font-weight: bolder;
@@ -251,7 +247,7 @@ h2 {
 
 /* دکمه‌های مدال‌ها */
 .modal button {
-  font-family: 'kalamehb', sans-serif;
+  font-family: 'Kalamehb', sans-serif;
   background-color: #4CAF50;
   color: white;
   padding: 12px 24px;
@@ -267,77 +263,80 @@ h2 {
   background-color: #45a049;
 }
 
+/* استایل کلی تایمر */
+#countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1%;
+  justify-content: center;
+}
+
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
   .container h1 {
-      font-size: 2em;
+    font-size: 2em;
   }
 
   #countdown {
-      flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1%;
+    flex-wrap: wrap;
   }
 
   .time-section {
-      margin: 1%;
+    margin: 1%;
+    flex: 1 0 22%; /* تنظیم برای نمایش دو به دو در تبلت‌ها */
   }
 
   .email-form {
-      padding: 1.5%;
-      margin: 2% auto;
+    padding: 1.5%;
+    margin: 2% auto;
   }
 
   .email-form h2 {
-      font-size: 1.2em;
+    font-size: 1.2em;
   }
 
   .email-form input[type="email"] {
-      width: calc(100% - 18px);
+    width: calc(100% - 18px);
   }
 
   .email-form button {
-      padding: 8px 16px;
-      font-size: 0.9em;
+    padding: 8px 16px;
+    font-size: 0.9em;
   }
 
   .action-buttons .styled-button {
-      font-size: 1em;
-      padding: 12px 24px;
+    font-size: 1em;
+    padding: 12px 24px;
   }
 }
 
-@media (max-width: 480px) {
-  .container h1 {
-      font-size: 1.5em;
-  }
 
+/* استایل برای تایمر در موبایل‌ها */
+@media (max-width: 480px) {
   #countdown {
-      flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* دو ستون با اندازه برابر */
+    grid-template-rows: 1fr 1fr; /* دو ردیف با اندازه برابر */
+    gap: 10px; /* فاصله بین سلول‌ها */
+    align-items: center;
+    justify-items: center;
   }
 
   .time-section {
-      margin: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .email-form {
-      padding: 1%;
-      margin: 2% auto;
+  .time {
+    font-size: 2em; /* اندازه فونت کوچکتر برای موبایل‌ها */
   }
 
-  .email-form h2 {
-      font-size: 1em;
-  }
-
-  .email-form input[type="email"] {
-      width: calc(100% - 16px);
-  }
-
-  .email-form button {
-      padding: 6px 12px;
-      font-size: 0.8em;
-  }
-
-  .action-buttons .styled-button {
-      font-size: 0.9em;
-      padding: 10px 20px;
+  .label {
+    font-size: 0.8em; /* اندازه فونت کوچکتر برای موبایل‌ها */
   }
 }
