@@ -43,17 +43,29 @@ body {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 80px;
   font-family: "Kalamehbl";
 }
 
-h2 {
+h2{
   font-size: 1.7em;
   margin-bottom: 20px;
 }
 
+h3 , h4 {
+  font-size: 1.3em;
+}
+
+h5 {
+  font-size: 1.6em;
+}
+
+.newsctitle {
+  color: #282c34;
+}
+
 p {
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: bolder;
 }
 
@@ -85,7 +97,8 @@ p {
 }
 
 .action-buttons {
-  margin: 2% 0;
+  margin:0px;
+  padding: 0px;
 }
 
 .styled-button {
@@ -334,7 +347,7 @@ p {
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
   .container h1 {
-    font-size: 2em;
+    font-size: 2.3em;
   }
 
   .modal button {
@@ -376,22 +389,46 @@ p {
   }
 
   p {
-    font-size: 0.8em;
+    font-size: 1.1em;
 
+  }
+
+  h3  {
+    font-size: 0.9em;
+  }
+
+  h4 {
+    font-size: 0.8em;
+  }
+  h5 {
+    font-size: 1.5em;
   }
 }
 
 @media (max-width: 480px) {
   .container h1 {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   p {
+    font-size: 1.1em;
+  }
+
+  h3 {
+    font-size: 0.9em;
+  }
+
+  h4 {
     font-size: 0.8em;
   }
 
+  h5 {
+    font-size: 1.0em;
+  }
+
+
   .modal button {
-    font-size: 0.6rem;
+    font-size: 1.2rem;
     font-weight: bolder;
   }
 
@@ -442,9 +479,9 @@ p {
 /* Container for the news section */
 #news-container {
   background-color: #f4f4f4;
-  padding: 20px;
+  padding: 0px;
   border-radius: 8px;
-  margin: 20px;
+  margin: 0px;
 }
 
 /* Title of the news section */
@@ -529,6 +566,8 @@ p {
     padding: 10px; /* Add padding for spacing */
 }
 
+
+
 }
 
 @media (max-width: 480px) {
@@ -542,11 +581,13 @@ p {
     max-width: 100%;
 }
 
+.news-content h4 {
+  font-size: 1.3em;
+}
+
 .news-content {
     text-align: center; /* Center text horizontally */
     width: 100%; /* Ensure content takes full width */
     padding: 10px; /* Add padding for spacing */
 }
 }
-
-
