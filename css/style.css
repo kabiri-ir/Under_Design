@@ -374,11 +374,20 @@ p {
     font-size: 1em;
     padding: 12px 24px;
   }
+
+  p {
+    font-size: 0.8em;
+
+  }
 }
 
 @media (max-width: 480px) {
   .container h1 {
     font-size: 1.5em;
+  }
+
+  p {
+    font-size: 0.8em;
   }
 
   .modal button {
