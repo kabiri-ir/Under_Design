@@ -27,8 +27,12 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
-        gtag('config', 'G-GJLPX578F3');
+        gtag('config', 'G-GJLPX578F3', {
+            'consent_mode': {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied'
+            }
+        });
     </script>
     <script type="application/ld+json">
         {
