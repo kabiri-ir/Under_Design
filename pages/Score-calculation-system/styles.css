@@ -14,6 +14,8 @@
 
 body {
     font-family: 'Kalameht', sans-serif;
+    background-image: url(faruk-kaymak-CNVvDjVDiVI-unsplash.jpg);
+    background-size: cover;
     direction: rtl;
     text-align: right;
     margin: 0;
@@ -109,6 +111,9 @@ button:hover, .button-group button:hover {
 h2 {
     font-family: 'Kalamehb', sans-serif;
     color: #333;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgba(50, 200, 250, 0.7);
     text-align: center;
     font-size: 3rem;
     margin: 0;
@@ -118,7 +123,7 @@ h2 {
 h1 {
     width: 100%;
     display: block;
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.6);
     font-family: 'Kalamehb', sans-serif;
     color: white;
     text-align: center;
@@ -129,8 +134,12 @@ h1 {
 }
 
 p {
-    color: #333;
-    font-size: 1.5rem;
+    color: white;
+    width: 100%;
+    background-color: rgba(100, 80, 250, 0.8);
+    font-size: 1.9rem;
+    margin-bottom: 0px;
+    border-radius: 8px;
     font-weight: bolder;
 }
 
@@ -195,6 +204,13 @@ input[type="number"] {
 
 /* استایل‌های ریسپانسیو */
 @media (max-width: 768px) {
+
+    P {
+        margin: 10px;
+        padding: 0px;
+        font-size: 20px;
+    }
+
     .container {
         padding: 10px;
     }
@@ -204,7 +220,10 @@ input[type="number"] {
     }
 
     h1 {
-        font-size: 1.7rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        font-size: 3.2rem;
+        padding-bottom: 0px;
+        padding-top: 0px;
     }
 
     .modal-content {
@@ -229,6 +248,13 @@ input[type="number"] {
 }
 
 @media (max-width: 480px) {
+
+    P {
+        margin: 4px;
+        padding: 0px;
+        font-size: 20px;
+    }
+
     .container {
         padding: 5px;
     }
@@ -244,9 +270,10 @@ input[type="number"] {
     }
 
     h1 {
+        background-color: rgba(0, 0, 0, 0.5);
         font-size: 3.2rem;
-        padding: 0px;
-        padding-bottom: 60px;
+        padding-bottom: 0px;
+        padding-top: 0px;
     }
 
     h2 {

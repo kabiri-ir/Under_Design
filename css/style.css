@@ -360,7 +360,7 @@ p {
     grid-template-rows: repeat(2, auto); /* دو ردیف */
     gap: 1%;
   }
-
+  
   .time-section {
     margin: 1%;
   }
