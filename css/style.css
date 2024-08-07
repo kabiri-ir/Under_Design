@@ -63,6 +63,12 @@ h5 {
 .newsctitle {
   color: #282c34;
 }
+a {
+  font-weight: bolder;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
 p {
   font-size: 1.3em;
